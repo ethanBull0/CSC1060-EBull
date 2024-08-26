@@ -2,9 +2,9 @@
 public class HelloWorld {
 
 	public static void main(String[] args) { 
-		System.out.println("Hello World!");
-		System.out.println("Hello");
-		System.out.println("This is very functional :)");
+		System.out.print("Hello\" World!\n\t");
+		System.out.print("Hello. ");
+		System.out.println("This is very functional :)"); //only creates a line at the end
 	}
 
 }
