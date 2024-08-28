@@ -1,5 +1,5 @@
 
-public class tempConversion {
+public class temp {
 	public static void main(String[] args) {
 double tempFahrenheit = 62.0;
 double tempCelsius = 30.0;
