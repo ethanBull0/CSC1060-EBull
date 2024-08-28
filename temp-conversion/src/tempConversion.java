@@ -10,12 +10,12 @@ double celsiusConversionFromFahr = (tempFahrenheit - 32) * (5/9);
 double kelvinConversionFromFahr = ((tempFahrenheit - 32) * (5/9) + 273.15);
 double fahrConversionFromKelvin  = (((tempKelvin - 273.15) / (5/9)) + 32);
 double celsiusConversionFromKelvin = tempKelvin - 273.15;
-	System.out.println("          From Celsius | From Fahrenheit | From Kelvin");
-	System.out.println("          ------------  ----------------  -------------");
-	System.out.println("Kelvin    |");
+	System.out.println("            From Celsius | From Fahrenheit | From Kelvin");
+	System.out.println("            ------------  ----------------  -------------");
+	System.out.println("Kelvin    |    " + celsiusConversionFromKelvin + "          " + fahrConversionFromKelvin + "		" + tempKelvin);
 	System.out.println("          |");
-	System.out.println("Celsius   |");
+	System.out.println("Celsius   |    " + tempCelsius + "          " + fahrConversionFromCelsius + "		" + kelvinConversionFromCelsius);
 	System.out.println("          |");
-	System.out.println("Fahrenheit|");
+	System.out.println("Fahrenheit|	  " + celsiusConversionFromFahr + "          " + tempFahrenheit + "          " + kelvinConversionFromFahr);
 	}
 }
