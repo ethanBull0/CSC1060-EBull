@@ -5,11 +5,17 @@ public class CircleCalc {
 		double radius;
 		System.out.println("Enter the radius of your circle: ");
 		radius = scn.nextDouble();
-		double diameter = radius * 2;
-		double area = Math.pow(radius, 2);
-		double circumference = 2 * Math.PI * radius;
-		System.out.println("Diameter = " + diameter);
-		System.out.println("Area = " + area);
-		System.out.println("Circumference = " + circumference);
+		System.out.println("Diameter = " + diameter(radius));
+		System.out.println("Area = " + area(radius));
+		System.out.println("Circumference = " + circumference(radius));
+	}
+	public static double diameter(double a) {
+		return a * 2;
+	}
+	public static double area(double a) {
+		return Math.PI * Math.pow(a, 2);
+	}
+	public static double circumference(double a) {
+		return 2 * Math.PI * a;
 	}
 }
