@@ -7,17 +7,18 @@ public class BeerBottles {
 		System.out.println("Enter the bottles of beer you would like to start with: ");
 		num = scn.nextInt();
 		int startingNum = num;
-		while (num < 100) {
+		while (num > 0) {
 			if (num == 1) {
-				System.out.println(num + " bottle of beer");
+				System.out.println(num + " bottle of beer on the wall, " + num + " bottle of beer");
+				num--;
+				System.out.println("Take one down and pass it around, " + num + " bottles of beer on the wall");
+				continue;
 			}
-			System.out.println(num + " bottles of beer");
-			num++;
+			System.out.println(num + " bottles of beer on the wall, " + num + " bottles of beer");
+			num--;
+			System.out.println("Take one down and pass it around, " + num + " bottles of beer on the wall");
 		}
-		if (startingNum == 1) {
-			System.out.println(startingNum + " bottle of beer");
-		}
-	System.out.println(startingNum + " bottles of beer");
+		System.out.println("Go to the store and buy some more, " + startingNum + " bottles of beer on the wall");
 	}
 
 }
