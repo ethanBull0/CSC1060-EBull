@@ -6,8 +6,8 @@ public class Fibonacci {
 		int n = 0;
 		System.out.println("Enter desired iterations of Fibonacci sequence: ");
 		n = scn.nextInt();
-		ForFibonacci(n);
-		WhileFibonacci(n);
+		System.out.println(ForFibonacci(n));
+		System.out.println(WhileFibonacci(n));
 	}
 
 	public static int ForFibonacci(int count) {

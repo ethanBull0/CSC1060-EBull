@@ -1,6 +1,8 @@
 //obtains the
 public class SumOfNaturalNums {
 	public static void main(String[] args) {
+		System.out.println(SumOfForNumbers());
+		System.out.println(SumOfWhileNumbers());
 		
 	}
 public static int SumOfForNumbers() {
