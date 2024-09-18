@@ -11,7 +11,7 @@ public class SumIntWhile {
 	public static int sumUpToNum(int num) {
 		int sum = 0;
 		int i = 0;
-		while (i < num) {
+		while (i <= num) {
 		sum += i;
 		i++;
 		}
