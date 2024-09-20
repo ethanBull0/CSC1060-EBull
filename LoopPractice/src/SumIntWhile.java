@@ -12,6 +12,11 @@ public class SumIntWhile {
 		int sum = 0;
 		int i = 0;
 		while (i <= num) {
+		if (i >= num) {
+			sum += i;
+			System.out.print(i + " = ");
+			return sum;
+			}
 		sum += i;
 		i++;
 		}

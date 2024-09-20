@@ -11,7 +11,13 @@ public class SumIntFor {
 		int sum = 0;
 		int i = 0;
 		for (i = 0; i <= num; i++) {
+			if (i >= num) {
+				sum += i;
+				System.out.print(i + " = ");
+				return sum;
+			}
 			sum += i;
+		System.out.print(i + " + ");
 		}
 		return sum;
 	}
