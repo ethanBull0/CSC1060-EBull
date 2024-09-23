@@ -27,12 +27,12 @@ public class Triangle {
 
 
 	public static void triFill(int size, char fill) {
-		String stringFill = String.valueOf(fill) + " ";
+		String stringFill = String.valueOf(fill) + " "; //char to string
 		String empty = " ";
 		int i = 0;
 		while (i < (size)) {
 		System.out.println(empty.repeat((size) - i) + stringFill.repeat(i + 1) + empty.repeat((size) + i));
-		i++;
+		i++; //less leftside rows, more rightside rows.
 	}
 }
 }
