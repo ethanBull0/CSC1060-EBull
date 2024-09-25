@@ -1,13 +1,15 @@
 import java.util.Scanner;
+
 public class GradeCalculator {
 
 	public static void main(String[] args) {
-	Scanner scn = new Scanner(System.in);
-	int grade;
-	System.out.println("Enter your grade value: ");
-	grade = scn.nextInt();
-	System.out.println(gradeCalc(grade));
+		Scanner scn = new Scanner(System.in);
+		int grade;
+		System.out.println("Enter your grade value: ");
+		grade = scn.nextInt();
+		System.out.println(gradeCalc(grade));
 	}
+
 	public static String gradeCalc(int num) {
 		if (num > 92) {
 			return "A";
