@@ -18,7 +18,7 @@ public class Scrabble {
 			if (tiles.indexOf(test.charAt(i)) == -1) { //if there is no tile for that test word
 				return false; //tile does not exist - we cannot make the word.
 			}
-			tiles.replaceFirst(test.substring(i,i), "");//remove the first index of that tile in the tile set - we can no longer use it. 
+			tiles.replaceFirst(test.substring(i,i + 1), "");//remove the first index of that tile in the tile set - we can no longer use it. 
 		}
 		
 		return true;
