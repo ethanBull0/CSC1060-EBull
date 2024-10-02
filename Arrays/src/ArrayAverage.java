@@ -16,25 +16,25 @@ public class ArrayAverage {
 	}
 
 	public static int arrayAvg(int[] arr) {
-	int mean = 0;
-	int biggest = 0;
-	int smallest = 32767;
-	for (int i = 0; i < arr.length; i++) { //loop to find biggest and smallest values
-		biggest = Math.max(biggest, arr[i]);
-		smallest = Math.min(smallest, arr[i]);
+		int mean = 0;
+		int biggest = 0;
+		int smallest = 32767;
+		for (int i = 0; i < arr.length; i++) { // loop to find biggest and smallest values
+			biggest = Math.max(biggest, arr[i]);
+			smallest = Math.min(smallest, arr[i]);
 		}
-	int[] arrExclusive = new int[arr.length - 2]; //arr, without the largest and smallest values.
-	for (int i = 0; i < arrExclusive.length; i++) { //loop to assign arr to all values except smallest and biggest
-	if (arr[i] != biggest || arr[i] != smallest) {
-		arrExclusive[i] = arr[i];
-	} else {
-		i--; //realign the index?
-	}
-	}
-	for (int i = 0; i < arrExclusive.length; i++) {
-		mean += arrExclusive[i];
-	}
-	mean  = mean / arrExclusive.length;
-	return mean;
+		int[] arrExclusive = new int[arr.length - 2]; // arr, without the largest and smallest values.
+		for (int i = 0; i < arrExclusive.length; i++) { // loop to assign arr to all values except smallest and biggest
+			if (arr[i] != biggest || arr[i] != smallest) {
+				arrExclusive[i] = arr[i];
+			} else {
+				i--; // realign the index?
+			}
+		}
+		for (int i = 0; i < arrExclusive.length; i++) {
+			mean += arrExclusive[i];
+		}
+		mean = mean / arrExclusive.length;
+		return mean;
 	}
 }

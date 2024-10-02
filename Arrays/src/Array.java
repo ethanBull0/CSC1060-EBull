@@ -22,7 +22,20 @@ public class Array {
 				System.out.println(greetings[i]);
 			}
 		}
-
+		int[] numReverse = arrSwap(numbers);
+		System.out.println("in reverse: ");
+		for (int i = 0; i < numReverse.length; i++) {
+			System.out.print(numReverse[i] + " ");
+		}
 	}
 
+	public static int[] arrSwap(int[] a) {
+		int temp = 0;
+		for (int i = 0; i < a.length / 2; i++) {
+			temp = a[i];
+			a[i] = a[a.length - 1 - i]; //old a[length - 1 - i] becomes a[i]
+			a[a.length - 1 - i] = temp; //old a[i] becomes a[length - 1 - i]
+		}
+		return a;
+	}
 }
