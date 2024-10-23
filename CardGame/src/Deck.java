@@ -4,7 +4,7 @@ import java.util.Arrays;
 public class Deck {
 	private Card[] cards;
 	
-	public Deck() {
+	public Deck() { //default constructor for the deck
 		this.cards = new Card[52];
 		int cardIndex = 0;
 		for (int j = 0; j < 4; j++) { //j = suit. one suit corresponding to each rank.
@@ -13,6 +13,10 @@ public class Deck {
 				cardIndex++;
 			}
 		}
+	}
+	
+	public Deck(int numCards) {
+		this.cards = new Card[numCards];
 	}
 
 	public Card[] getCards() {
@@ -32,7 +36,20 @@ public class Deck {
 		Card tmp = cards[val1]; //the value of the array is a Card, which holds a rank and suit, not an int.
 		cards[val1] = cards[val2];
 		cards[val2] = tmp; //I can also shuffle with the index to replace each one instead of just using it as a counter.
+		//int randIndex = rand.nextInt(card.length);
+		//Card temp = cards[randIndex];
+		
+		
 		}
+	}
+	
+	public Deck subdeck(int start, int end) { //splits the deck using start and end index (Among players)
+		Deck subdeck = new Deck(end - start + 1); //new constructor for deck
+		int j = 0;
+		for (int i = start; i <= end; i++) {
+			subdeck.cards[j] = this.cards[i];
+		}
+		return subdeck;
 	}
 	
 	public String toString() {
