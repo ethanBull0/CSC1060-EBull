@@ -37,6 +37,15 @@ public class Card {
 		this.suit = suit;
 	}
 	
+	public int compareTo(Card oCard) { //the first card comes before the call of this method. The second is oCard.
+		if (rank < oCard.rank) {
+			return -5;
+		} else if (rank > oCard.rank) {
+			return 5;
+		} else {
+			return 0;
+		} //check suits in a separate if statement after this.
+	}
 	@Override
 	public String toString() {
 		return RANKS[rank] + " of " + SUITS[suit];
