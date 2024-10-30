@@ -23,9 +23,11 @@ public class War {
 		Pile winP1 = new Pile();
 		Pile winP2 = new Pile();
 		
+		
 		while(!p1.isEmpty() && !p2.isEmpty()) { //game ends when one pile runs out (de morgans law)
-			Card c1 = p1.popCard(); //player1's card played
-			Card c2 = p2.popCard(); //player2's card played
+			
+			Card c1 = p1.popCard(); //player1's card played. why is it null?
+			Card c2 = p2.popCard(); //player2's card played.
 			midPile.addCard(c1);
 			midPile.addCard(c2);
 			int result = c1.compareTo(c2);
@@ -34,6 +36,7 @@ public class War {
 			} else if (result < 0) {
 				winP2.addPile(midPile);
 			} //remove the card from midPile each play.
+			
 		}
 	
 		if (winP1.size() > winP2.size()) {

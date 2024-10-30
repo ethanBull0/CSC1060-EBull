@@ -21,7 +21,7 @@ public class Pile {
 	
 	public Card popCard() {
 		Card card = cards.remove(0);
-		return card;
+		return card; //returns null after 1st loop
 	}
 	
 	public int size() {
@@ -29,7 +29,7 @@ public class Pile {
 	}
 	public void addCard(Card card) { //void because we input and do not expect output (at this method)
 		cards.add(card);
-	}
+	} // creates null?
 	
 	public boolean isEmpty() {
 		return cards.isEmpty(); //isEmpty on this line is a List function.
