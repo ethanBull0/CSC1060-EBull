@@ -83,25 +83,15 @@ public class Deck {
 	
 	public void selectionSort() { //sorts by rank
 		for (int i = 0; i < cards.length; i++) {
-			Card temp = new Card(0, 0);
 			Card currentMin = cards[i];
-			for (int j = i + 1; j < cards.length; j++) {
+			for (int j = i; j < cards.length; j++) {
 				Card currentItem = cards[j];
 				int test = currentMin.compareTo(currentItem);
-				if (test < 0) {
-					temp = currentMin;
+				if (test > 0) {
 					currentMin = currentItem;
-					currentItem = temp;
-				} else if (test > 0) {
-					temp = currentItem;
-					currentItem = currentMin;
-					currentMin = temp;
-				} else if (test == 0) {
-					temp = currentMin;
-					currentMin = currentItem;
-					currentItem = temp;
 				}
-			}
+				}
+			cards[i] = currentMin;
 		}
 	}
 	
