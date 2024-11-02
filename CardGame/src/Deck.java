@@ -81,4 +81,14 @@ public class Deck {
 		
 	}
 	
+	public void selectionSort() {
+		for (int i = 0; i < cards.length; i++) {
+			Card currentMin = cards[i];
+			for (int j = i + 1; j < cards.length; j++) {
+				Card currentItem = cards[j];
+				
+			}
+		}
+	}
+	
 }
