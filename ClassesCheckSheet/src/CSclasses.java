@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class CSclasses {
 
@@ -26,13 +27,11 @@ public class CSclasses {
 			System.out.println(courseList[i].getCourseNumber());
 		}
 		
-		Student YourMom = new Student("Joe", "Mama", 0111888, 4.0); //finish this
-		YourMom.setFirstName("Joe");
-		YourMom.setLastName("Mama");
-		YourMom.setStudentNumber(0333111);
-		YourMom.setGrade(72);
-		YourMom.addCourse(CSC1060);
-		System.out.println(YourMom.toString());
+		ArrayList<Course> courses = new ArrayList<>();
+		RealTimeRemoteCourse realTime = new RealTimeRemoteCourse();
+		String[] zInfo = {"2:15PM", "www.zoom.com"};
+		realTime.setZoomInfo(zInfo);
+		courses.add(realTime);
 	}
 
 }

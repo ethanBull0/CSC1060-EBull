@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Course {
 
@@ -5,6 +6,8 @@ public class Course {
 	private int numStudents;
 	private int maxStudents;
 	private int credits;
+	private int id;
+	private ArrayList<Student> studentList;
 	
 	public Course () {
 		
@@ -46,6 +49,14 @@ public class Course {
 
 	public void setCredits(int credits) {
 		this.credits = credits;
+	}
+	
+	public void addStudent(Student s) {
+		studentList.add(s);
+	}
+	
+	public void removeStudent(Student s) {
+		studentList.remove(s);
 	}
 
 	@Override
