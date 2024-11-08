@@ -6,7 +6,7 @@ public class Student { //extends course?
 	private String firstName;
 	private String lastName;
 	private int studentNumber;
-	private int grade;
+	private double grade;
 	private ArrayList<Course> courseList;
 	
 	public Student() {
@@ -59,7 +59,7 @@ public class Student { //extends course?
 
 
 
-	public int getGrade() {
+	public double getGrade() {
 		return grade;
 	}
 
@@ -82,8 +82,16 @@ public class Student { //extends course?
 	}
 
 
-
-	public Student(String firstName, String lastName, int studentNumber, int grade, ArrayList<Course> courseList) {
+	public Student(String firstName, String lastName, int studentNumber, double grade) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.studentNumber = studentNumber;
+		this.grade = grade;
+		this.courseList = courseList;
+	}
+	
+	public Student(String firstName, String lastName, int studentNumber, double grade, ArrayList<Course> courseList) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;

@@ -26,7 +26,7 @@ public class CSclasses {
 			System.out.println(courseList[i].getCourseNumber());
 		}
 		
-		Student YourMom = new Student("Joe", "Mama"); //finish this
+		Student YourMom = new Student("Joe", "Mama", 0111888, 4.0); //finish this
 		YourMom.setFirstName("Joe");
 		YourMom.setLastName("Mama");
 		YourMom.setStudentNumber(0333111);
