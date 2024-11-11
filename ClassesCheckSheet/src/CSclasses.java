@@ -1,8 +1,9 @@
 import java.util.ArrayList;
 
 public class CSclasses {
-
+	
 	public static void main(String[] args) {
+		ArrayList<Course> courses = new ArrayList<>();
 		Course CSC1060 = new Course();
 		CSC1060.setCredits(4);
 		
@@ -22,16 +23,24 @@ public class CSclasses {
 			System.out.println(c.getNumStudents());
 			System.out.println(c.getMaxStudents());
 			System.out.println(c.getClass());
-		} */
+		} 
 		for (int i = 0; i < courseList.length; i++) {
 			System.out.println(courseList[i].getCourseNumber());
-		}
+		} */
 		
-		ArrayList<Course> courses = new ArrayList<>();
 		RealTimeRemoteCourse realTime = new RealTimeRemoteCourse();
 		String[] zInfo = {"2:15PM", "www.zoom.com"};
 		realTime.setZoomInfo(zInfo);
 		courses.add(realTime);
+		
+		System.out.println(realTime);
+		
+		InPersonCourse inPerson1 = new InPersonCourse("ENG1022", 19, 30, 3, "BP", 122);
+		System.out.println(inPerson1);
+		
+		FullRemoteCourse fullRemote1 = new FullRemoteCourse("MAT1061", 40, 80, 4, "mathteacher@gmail.com");
+		System.out.println(fullRemote1);
+		
 	}
 
 }
