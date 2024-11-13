@@ -9,6 +9,17 @@ public class Farm {
 		Horse horse1 = new Horse("Roscoe", 750.0, 125.0, "Wild");
 		System.out.println(horse1);
 
+		Animal[] animals = new Animal[5];
+		animals[0] = cat1;
+		animals[1] = horse1;
+		
+		
+		for (Animal anim : animals) {
+			if (anim instanceof Horse) {
+				Horse horse = (Horse) anim;
+				System.out.println(((Horse) anim).makeSound());
+			}
+		}
 	}
 
 }
