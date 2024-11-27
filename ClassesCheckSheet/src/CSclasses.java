@@ -1,47 +1,93 @@
 import java.util.ArrayList;
+import java.util.Scanner;
+import java.io.*;
 
 public class CSclasses {
 	
 	public static void main(String[] args) {
+		String filePath = "courses.csv";
+		Scanner scn = new Scanner(System.in);
 		ArrayList<Course> courses = new ArrayList<>();
-		InPersonCourse CSC1060 = new InPersonCourse();
-		CSC1060.setCredits(4);
-		RealTimeRemoteCourse realTime = new RealTimeRemoteCourse();
-		String[] zInfo = {"2:15PM", "www.zoom.com"};
-		realTime.setZoomInfo(zInfo);
-		courses.add(realTime);
 		
-		//System.out.println(realTime);
-		
-		InPersonCourse inPerson1 = new InPersonCourse("ENG1022", 19, 30, 3, "BP", 122);
-		//System.out.println(inPerson1);
-		
-		FullRemoteCourse fullRemote1 = new FullRemoteCourse("MAT1061", 40, 80, 4, "mathteacher@gmail.com");
-		//System.out.println(fullRemote1);
-		
-		Course[] courseList = new Course[6];
-		courseList[0] = CSC1060;
-		courseList[1] = new Course("", 0,0,0);
-		courseList[1].setCourseNumber("ENG1020"); //changes all instances of CSC1060's courseNumber to ENG1020
-		courseList[1].setCredits(3);
-		courseList[1].setNumStudents(43);
-		courseList[2] = inPerson1;
-		courseList[3] = fullRemote1;
-		courseList[4] = new Course("CSC1111", 15, 25, 5);
-		courseList[5] = realTime;
-		 /*for (Course c : courseList) {
-			System.out.println(c.getCourseNumber());
-			System.out.println(c.getCredits());
-			System.out.println(c.getNumStudents());
-			System.out.println(c.getMaxStudents());
-			System.out.println(c.getClass());
-		} 
-		for (int i = 0; i < courseList.length; i++) {
-			System.out.println(courseList[i].getCourseNumber());
+		System.out.println("Select an option:\n(1) Read\n(2) Write");
+		int option = scn.nextInt();
+			if (option == 2) {
+				writeCourses(filePath);
+			} else if (option == 1) {
+				ArrayList<Course> printMe = readCourses(filePath);
+				System.out.println(printMe); //ArrayList's toString() method
+			}
+	}
+	
+	public static ArrayList<Course> readCourses(String filePath) { //Compiles courses from a .csv file into an ArrayList of Courses.
+		String line = "";
+		ArrayList<Course> courses = new ArrayList<>();
+		BufferedReader read = null;
+		try {
+			read = new BufferedReader(new FileReader(filePath));
+			while ((line = read.readLine()) != null) {
+				String[] thisCourse = line.split(",");
+				int numStudents = Integer.parseInt(thisCourse[2]);
+				int maxStudents = Integer.parseInt(thisCourse[3]);
+				int credits = Integer.parseInt(thisCourse[4]);
+				if (thisCourse[0].equals("InPersonCourse")) {
+					int roomNumber = Integer.parseInt(thisCourse[6]);
+					Course inPerson = new InPersonCourse(thisCourse[1], numStudents, maxStudents, credits, thisCourse[5], roomNumber);
+					courses.add(inPerson);
+				} else if (thisCourse[0].equals("RealTimeRemoteCourse")) {
+					Course realTime = new RealTimeRemoteCourse(thisCourse[1], numStudents, maxStudents, credits, thisCourse[5]);
+					courses.add(realTime);
+				} else if (thisCourse[0].equals("FullRemoteCourse")) {
+					Course fullRemote = new FullRemoteCourse(thisCourse[1], numStudents, maxStudents, credits, thisCourse[5]);
+					courses.add(fullRemote);
+				}
+			}
+		} catch (Exception x) {
+			System.out.println("Could not read data. Check the formatting of your .csv file!");
+		} finally {
+			try {
+				read.close();
+			} catch (Exception e) {
+				System.out.println("Could not close reader!");
+			}
+		}
+		/*Scanner scn = new Scanner(System.in);
+		System.out.println("Select another Action? (Y/N)");
+		char selection = '\0';
+		while (selection != 'Y' || selection != 'y' || selection != 'X' || selection != 'x') {
+			selection = scn.next().charAt(0);
+		}
+		if (selection == 'Y' || selection == 'y') {
+			main(null);
 		} */
+		return courses;
+	}
+	
+	public static void writeCourses(String filePath) {
+		Scanner scan = new Scanner(System.in);
+		File courses = new File(filePath);
+		if (!courses.exists()) {
+			try {
+				courses.createNewFile();
+			} catch (IOException e) {
+				System.out.println("Could not create new file!");
+				e.printStackTrace();
+			}
+		}
+		System.out.println("Select an option:\n(1) Delete\n(2) Add");
+		if (scan.nextInt() == 1) { //delete
+			
+		} else if (scan.nextInt() == 2) { //add
+			System.out.println("Enter your course type:\n(1) InPersonCourse\n(2) RealTimeRemoteCourse\n(3) FullRemoteCourse");
+			if (scan.nextInt() == 1) {
+				
+			} else if (scan.nextInt() == 2) {
+				
+			} else if (scan.nextInt() == 3) {
+				
+			}
+		}
 		
-		
-		traverse(courseList);
 		
 	}
 	
@@ -69,5 +115,8 @@ public class CSclasses {
 			}
 		}
 	}
+	
+	public static void asciiDisplay(Courses[]) { //Displays .csv in an easily readable, ASCII format.
 
+	}
 }

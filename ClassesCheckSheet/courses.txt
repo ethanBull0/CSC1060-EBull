@@ -1,0 +1,11 @@
+//Courses
+//To insert a course, use the format {Course Number
+//				     Number of Students
+//				     Max Amount of Students
+//				     Credits}
+//e.g. CSC1060
+//      20
+//      30
+//	4
+//To separate courses, add a newline between each entry.
+
