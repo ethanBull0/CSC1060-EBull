@@ -76,6 +76,17 @@ public class CSclasses {
 		}
 		System.out.println("Select an option:\n(1) Delete\n(2) Add");
 		if (scan.nextInt() == 1) { //delete
+			ArrayList<Course> course = readCourses(filePath); //do this so we can 
+			asciiDisplay(course);
+			try {
+				System.out.println("Select an entry to delete: ");
+				int selection = scan.nextInt();	
+				course.remove(selection);
+				File coursesOverwrite = new File(filePath);
+				//insert course.forEach(c -> insertCourse(c));
+			} catch (ArrayIndexOutOfBoundsException e) {
+				System.out.println("Could not find entry in array!");
+			}
 			
 		} else if (scan.nextInt() == 2) { //add
 			System.out.println("Enter your course type:\n(1) InPersonCourse\n(2) RealTimeRemoteCourse\n(3) FullRemoteCourse");
@@ -116,7 +127,18 @@ public class CSclasses {
 		}
 	}
 	
-	public static void asciiDisplay(Courses[]) { //Displays .csv in an easily readable, ASCII format.
-
+	public static void asciiDisplay(ArrayList<Course> courses) { //Displays .csv in an easily readable, ASCII format.
+		for (int i = 0; i < courses.size(); i++) {
+			Course c = courses.get(i);
+			System.out.print(i + ". ");
+			if (c instanceof FullRemoteCourse) {
+				System.out.print("FullRemoteCourse " + c.getCourseNumber() + " " + c.getCredits() + " " + c.getNumStudents() + " " + c.getMaxStudents() + " " + ((FullRemoteCourse) c).getContactEmail());
+			} else if (c instanceof RealTimeRemoteCourse) {
+				System.out.print("RealTimeRemoteCourse " + c.getCourseNumber() + " " + c.getCredits() + " " + c.getNumStudents() + " " + c.getMaxStudents() + " " + ((RealTimeRemoteCourse) c).getZoomInfo());
+			} else if (c instanceof InPersonCourse) {
+				System.out.print("InPersonCourse " + c.getCourseNumber() + " " + c.getCredits() + " " + c.getNumStudents() + " " + c.getMaxStudents() + " " + ((InPersonCourse) c).getBuilding() + " " + ((InPersonCourse) c).getRoomNumber());
+			}
+			System.out.println("\n");
+		}
 	}
 }
