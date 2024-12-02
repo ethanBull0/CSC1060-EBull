@@ -15,7 +15,8 @@ public class CSclasses {
 				writeCourses(filePath);
 			} else if (option == 1) {
 				ArrayList<Course> printMe = readCourses(filePath);
-				System.out.println(printMe); //ArrayList's toString() method
+				asciiDisplay(printMe);
+				//System.out.println(printMe); //ArrayList's toString() method
 			}
 	}
 	
@@ -89,13 +90,29 @@ public class CSclasses {
 			}
 			
 		} else if (scan.nextInt() == 2) { //add
+			//Scanner scn = new Scanner(System.in);
 			System.out.println("Enter your course type:\n(1) InPersonCourse\n(2) RealTimeRemoteCourse\n(3) FullRemoteCourse");
-			if (scan.nextInt() == 1) {
-				
-			} else if (scan.nextInt() == 2) {
-				
-			} else if (scan.nextInt() == 3) {
-				
+			int choice = scan.nextInt();
+			System.out.println("Enter your course number: ");
+			String courseNum = scan.nextLine();
+			System.out.println("Enter the number of students: ");
+			int numStudents = scan.nextInt();
+			System.out.println("Enter the maximum number of students: ");
+			int maxStudents = scan.nextInt();
+			System.out.println("Enter the number of credits: ");
+			int numCredits = scan.nextInt();
+			if (choice == 1) {
+				System.out.println("Enter the building name: ");
+				String building = scan.nextLine();
+				System.out.println("Enter the classroom number: ");
+				int roomNumber = scan.nextInt();
+			} else if (choice == 2) {
+				System.out.println("Enter the zoom meeting info: ");
+				String zoomInfo = scan.nextLine();
+			} else if (choice == 3) {
+				System.out.println("Enter the teacher's contact email: ");
+				String contactEmail = scan.nextLine();
+
 			}
 		}
 		
@@ -132,11 +149,11 @@ public class CSclasses {
 			Course c = courses.get(i);
 			System.out.print(i + ". ");
 			if (c instanceof FullRemoteCourse) {
-				System.out.print("FullRemoteCourse " + c.getCourseNumber() + " " + c.getCredits() + " " + c.getNumStudents() + " " + c.getMaxStudents() + " " + ((FullRemoteCourse) c).getContactEmail());
+				System.out.print("FullRemoteCourse, " + c.getCourseNumber() + ", credits: " + c.getCredits() + ", number of students: " + c.getNumStudents() + ", max students: " + c.getMaxStudents() + ", contact email: " + ((FullRemoteCourse) c).getContactEmail());
 			} else if (c instanceof RealTimeRemoteCourse) {
-				System.out.print("RealTimeRemoteCourse " + c.getCourseNumber() + " " + c.getCredits() + " " + c.getNumStudents() + " " + c.getMaxStudents() + " " + ((RealTimeRemoteCourse) c).getZoomInfo());
+				System.out.print("RealTimeRemoteCourse, " + c.getCourseNumber() + ", credits: " + c.getCredits() + ", number of students: " + c.getNumStudents() + ", max students: " + c.getMaxStudents() + ", zoom info: " + ((RealTimeRemoteCourse) c).getZoomInfo());
 			} else if (c instanceof InPersonCourse) {
-				System.out.print("InPersonCourse " + c.getCourseNumber() + " " + c.getCredits() + " " + c.getNumStudents() + " " + c.getMaxStudents() + " " + ((InPersonCourse) c).getBuilding() + " " + ((InPersonCourse) c).getRoomNumber());
+				System.out.print("InPersonCourse, " + c.getCourseNumber() + ", credits: " + c.getCredits() + ", number of students: " + c.getNumStudents() + ", max students: " + c.getMaxStudents() + ", building: " + ((InPersonCourse) c).getBuilding() + ", room number: " + ((InPersonCourse) c).getRoomNumber());
 			}
 			System.out.println("\n");
 		}
